@@ -1,12 +1,40 @@
-# React + Vite
+Portfolio Website - Abhijeet Singh Rawat
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This is my personal portfolio website, designed to showcase my skills, projects, and experience as a Full-Stack Web Developer. The goal of this website is to provide a clean, interactive, and responsive platform where recruiters and visitors can learn more about my technical expertise, problem-solving skills, and professional journey.
 
-## Expanding the ESLint configuration
+Tech Stack Used
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Frontend: React.js, Tailwind CSS, JavaScript
+
+Backend: Node.js, Express.js
+
+Other Tools & Libraries: Framer Motion (for animations), EmailJS (for contact form), Vercel (for deployment)
+
+Features
+
+Home: A sleek landing page introducing myself and my key skills.
+
+About Me: A brief overview of my education, experience, and interests.
+
+Projects: A showcase of my real-world projects, including descriptions, technologies used, and live/demo links.
+
+Skills: Highlights of my expertise in MERN stack, React.js, DSA, and problem-solving.
+
+Contact: A dynamic contact form for potential employers, collaborators, or recruiters to reach out.
+
+Responsive Design: Fully optimized for desktop, tablet, and mobile users.
+
+Deployment
+
+The website is deployed on Vercel for high performance and global availability.
+
+Future Enhancements
+
+Adding a blog section to share insights on web development and DSA.
+
+Implementing dark mode for a better user experience.
+
+Enhancing animations for smoother UI interactions.
