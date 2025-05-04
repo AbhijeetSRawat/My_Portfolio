@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
-import Dashboard from './pages/dashboard'
+import Dashboard from './pages/Dashboard'
 import Navbar from './components/core/Navbar'
 import About from './pages/About'
 import Projects from './pages/Projects'
