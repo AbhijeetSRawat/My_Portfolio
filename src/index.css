@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@keyframes slide {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(50%); }
+  }
+
+  @keyframes slide-in {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  @keyframes flipY {
+    0%, 40% {
+      transform: rotateY(0deg);
+    }
+    50%, 90% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+  
+  .flip-card {
+    animation: flipY 2s infinite;
+  }
