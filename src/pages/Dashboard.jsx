@@ -20,7 +20,7 @@ export default function Dashboard() {
             <div className='text-2xl font-bold my-2 lg:text-5xl lg:font-semibold lg:mb-5'>
               FULL-STACK WEB DEVELOPER
             </div>
-            <div className='text-center px-3 mt-1 mb-5 lg:text-2xl lg:mb-5 lg:text-start  font-serif'>
+            <div className='text-center px-3 mt-1 mb-5 lg:text-2xl lg:mb-16 lg:text-start  '>
               I am a Full-Stack Web Developer focused on crafting clean and user-friendly experiences, I am passionate about building excellent software that improves the lives of those around me. 
             </div>
             

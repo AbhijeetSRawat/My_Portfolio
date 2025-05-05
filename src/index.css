@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+body {
+    font-family: 'Roboto', sans-serif;
+  }
+
 @keyframes slide {
     from { transform: translateX(-50%); }
     to { transform: translateX(50%); }
@@ -29,3 +34,6 @@
   .flip-card {
     animation: flipY 2s infinite;
   }
+
+
+ 

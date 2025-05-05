@@ -9,8 +9,8 @@ import Contact from './pages/Contact'
 export default function App() {
   return (
     
-     <div className=' lg:flex w-[360px] lg:w-[100vw] min-h-[100vh] overflow-x-hidden '>
-
+     <div className='lg:flex w-[360px] lg:w-[100vw] min-h-[100vh] overflow-x-hidden '>
+        
         <Navbar/>
 
         <div className='bg-[rgba(14,12,12,0.9)] h-[100vh] z-[-100] text-white w-full overflow-y-auto scrollbar-hide translate-y-[-100%] opacity-0 transition-all duration-500 ease-out animate-[slide-in_1.5s_forwards] '>
