@@ -1,5 +1,5 @@
 import React from 'react'
-import cvFile from "../assets/AbhijeetSinghRawat_Resume.pdf";
+import cvFile from "../assets/AbhijeetSinghRawat_resume.pdf";
 import { Link } from 'react-router-dom';
 import { FaDownload } from "react-icons/fa";
 import { FaBriefcase } from "react-icons/fa";
@@ -32,7 +32,7 @@ const About = () => {
                     
                   </div>
                   <div>
-                    <div className='flex gap-2 text-lg'>LinkedIn : <div className='text-gray-400'>Click Here</div></div>
+                    <div className='flex gap-2 text-lg'>LinkedIn : <Link to="https://www.linkedin.com/in/abhijeet-singh-rawat-8079011ab/" className='text-blue-400'>Click Here!</Link></div>
                     
                     <div className='flex gap-2 text-lg'>Nationality : <div className='text-gray-400'>Indian</div></div>
                     <div className='flex gap-2 text-lg'>Address : <div className='text-gray-400'>Kotdwara, Uttarakhand</div></div>
