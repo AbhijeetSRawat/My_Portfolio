@@ -14,7 +14,7 @@ const Navbar = () => {
         
         
 
-        <div className='h-16 relative bg-black flex p-2 justify-around text-white text-xl items-center lg:flex-col lg:w-20 lg:justify-center lg:gap-10 lg:h-[100vh] translate-x-[-100%] opacity-0 transition-all duration-500 ease-out animate-[slide-in_1.5s_forwards] '>
+        <div className='h-16 relative bg-black flex p-2 z-[2] justify-around text-white text-xl items-center lg:flex-col lg:w-20 lg:justify-center lg:gap-10 lg:h-[100vh] translate-x-[-100%] opacity-0 transition-all duration-500 ease-out animate-[slide-in_1.5s_forwards] '>
             
             <NavLink to='/'>
                 <img src={logo} className=' lg:absolute top-5 left-3 h-14 w-14 lg:h-14 lg:w-14 rounded-full flip-card' alt="Abhijeet" />
@@ -22,10 +22,10 @@ const Navbar = () => {
             </NavLink>
         
 
-            <NavLink to="/" className='relative text-xl font-semibold rounded-full h-11 w-11 flex justify-center group items-center bg-[#4e4e4e] hover:bg-yellow-500 lg:h-14 lg:w-14 transition-all duration-1000 ease-in-out'>
+            <NavLink to="/" className='  relative text-xl font-semibold rounded-full h-11 w-11 flex justify-center group items-center bg-[#4e4e4e] hover:bg-yellow-500 lg:h-14 lg:w-14 transition-all duration-1000 ease-in-out'>
                 
                 <IoHome />
-                <div className="absolute z-[999]  left-0 top-0 w-[100px] rounded-full h-14 bg-yellow-500 opacity-0 invisible lg:group-hover:visible lg:group-hover:opacity-100 transition-all duration-1000 ease-in-out lg:group-hover:translate-x-16 transform lg:group-hover:scale-100  flex pl-[18px] gap-4 items-center">
+                <div className="absolute left-0 top-0 w-[100px] rounded-full h-14 bg-yellow-500 opacity-0 invisible lg:group-hover:visible lg:group-hover:opacity-100 transition-all duration-1000 ease-in-out lg:group-hover:translate-x-16 transform lg:group-hover:scale-100  flex pl-[18px] gap-4 items-center">
                  HOME
                 </div>
                 

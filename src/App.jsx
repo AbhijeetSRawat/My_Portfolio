@@ -13,7 +13,7 @@ export default function App() {
         
         <Navbar/>
 
-        <div className='bg-[rgba(14,12,12,0.9)] h-[100vh] z-[-100] text-white w-full overflow-y-auto scrollbar-hide translate-y-[-100%] opacity-0 transition-all duration-500 ease-out animate-[slide-in_1.5s_forwards] '>
+        <div className='bg-[rgba(14,12,12,0.9)] h-[100vh] text-white w-full overflow-y-auto scrollbar-hide translate-y-[-100%] opacity-0 transition-all duration-500 ease-out animate-[slide-in_1.5s_forwards] '>
           <Routes>
               <Route path='/' element={<Dashboard/>}/>  
               <Route path='/about' element={<About/>}/>  
