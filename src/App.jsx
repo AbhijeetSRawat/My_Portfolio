@@ -9,7 +9,8 @@ import Contact from './pages/Contact'
 export default function App() {
   return (
     
-     <div className='lg:flex w-[360px] lg:w-[100vw] min-h-[100vh] overflow-x-hidden '>
+     <div className='bg-[rgba(14,12,12,0.9)] min-h-[100vh] min-w-[100vw]'>
+        <div className='lg:flex w-[360px] lg:w-[100vw] min-h-[100vh] overflow-x-hidden '>
         
         <Navbar/>
 
@@ -22,6 +23,7 @@ export default function App() {
           </Routes>
         </div>
      
-    </div>
+        </div>
+     </div>
   )
 }
