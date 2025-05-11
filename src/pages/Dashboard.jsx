@@ -6,7 +6,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import portfoliosm from '../assets/portfoliopicsm.png'
 export default function Dashboard() {
   return (
-    <div className=' text-white lg:w-full lg:h-full flex lg:justify-between flex-col lg:flex-row items-center lg:p-5 lg:pl-16'>
+    <div className=' text-white lg:w-full lg:h-full flex lg:justify-between flex-col lg:flex-row items-center lg:p-5 lg:pl-16 translate-y-[-100%] transition-all duration-500 ease-out animate-[slide-in_1.5s_forwards]'>
         <div className='w-[65vw] h-[65vw] lg:w-[33vw] lg:h-[82vh] mt-10 flex justify-center items-center bg-yellow-500 rounded-full lg:rounded-3xl shadow-lg'>
           {/* the image div */}
               <img className='rounded-full w-[60vw] h-[60vw] lg:hidden lg:opacity-0 ' src={portfoliosm} alt="Abhijeet" />
