@@ -3,14 +3,19 @@ import cvFile from "../assets/AbhijeetSinghRawat_resume.pdf";
 import { Link } from "react-router-dom";
 import { FaDownload } from "react-icons/fa";
 import { FaBriefcase } from "react-icons/fa";
+import { IoSchoolSharp } from "react-icons/io5";
 
 const About = () => {
   return (
     <div className="flex flex-col w-full items-center mt-5 mb-20 translate-y-[-100%] transition-all duration-500 ease-out animate-[slide-in_1.5s_forwards]">
       <div className="w-[full] relative h-[10vh] flex justify-center items-center lg:h-[20vh]  ">
+
+        {/* resume */}
         <div className="text-7xl lg:text-9xl font-extrabold text-gray-700">
           RESUME
         </div>
+
+        {/* about */}
         <div className="absolute text-4xl lg:text-6xl font-bold">
           ABOUT <span className="text-yellow-500 ">ME</span>
         </div>
@@ -82,6 +87,38 @@ const About = () => {
         </a>
       </div>
 
+      <div className="w-full flex justify-center text-4xl  mb-5 font-semibold mt-8">
+        Experience:
+      </div>
+
+      {/* experience */}
+
+      <div className="flex w-full p-5 gap-4 lg:w-[50vw] lg:my-6">
+        <div className="flex relative flex-col">
+          <div className="w-[8vh] h-[8vh] rounded-full z-10 flex justify-center items-center bg-yellow-500">
+            <FaBriefcase className="text-2xl " />
+          </div>
+          <div className="w-[1px] absolute left-[4vh] h-[73vh] lg:h-[42vh]  bg-gray-400"></div>
+        </div>
+        <div className="flex flex-col gap-5">
+          <div className="bg-gray-500 w-[65vw] lg:w-[11vw] h-[4vh] flex justify-center items-center rounded-full">
+            June 2025 - Present
+          </div>
+          <div className="text-2xl font-semibold">
+            MERN Stack Intern - TECHBRO24
+          </div>
+          <div className="text-gray-300">
+            -Developing scalable web applications using MongoDB, Express.js, React, and Node.js (MERN stack). <br /><br />
+            -Building RESTful APIs with JWT authentication & optimizing database performance in MongoDB. <br /> <br />
+            -Implementing responsive UIs with React and Tailwind CSS. <br /> <br />
+            -Collaborating in agile teams to deliver features and troubleshoot issues.
+          </div>
+          <div className="text-xl font-medium"></div>
+        </div>
+      </div>
+
+      {/* cards */}
+
       <div className="flex flex-col lg:flex-row lg:gap-10 p-5 mt-5 gap-3">
         <div className="flex flex-col gap-3 lg:gap-10 translate-x-[-100%]  transition-all duration-500 ease-out animate-[slide-in_2s_forwards]">
           <div className=" border border-gray-500 h-[20vh] rounded-xl p-7  ">
@@ -119,6 +156,8 @@ const About = () => {
           </div>
         </div>
       </div>
+
+      {/* skills */}
 
       <div className="w-full flex justify-center text-4xl  mb-5 font-semibold my-6 lg:my-10">
         My Skills:
@@ -386,6 +425,8 @@ const About = () => {
         </div>
       </div>
 
+      {/* education */}
+
       <div className="w-full flex justify-center text-4xl  mb-5 font-semibold mt-8">
         Education:
       </div>
@@ -393,7 +434,7 @@ const About = () => {
       <div className="flex w-full p-5 gap-4 lg:w-[50vw] lg:my-6">
         <div className="flex relative flex-col">
           <div className="w-[8vh] h-[8vh] rounded-full z-10 flex justify-center items-center bg-yellow-500">
-            <FaBriefcase className="text-2xl " />
+            <IoSchoolSharp className="text-3xl " />
           </div>
           <div className="w-[1px] absolute left-[4vh] h-[47vh] lg:h-[28vh]  bg-gray-400"></div>
         </div>
@@ -415,7 +456,7 @@ const About = () => {
       <div className="flex w-full p-5 gap-4 lg:w-[50vw] lg:my-6">
         <div className="flex relative flex-col">
           <div className="w-[8vh] h-[8vh] rounded-full z-10 flex justify-center items-center bg-yellow-500">
-            <FaBriefcase className="text-2xl " />
+            <IoSchoolSharp className="text-3xl " />
           </div>
           <div className="w-[1px] absolute left-[4vh] h-[43vh] lg:h-[28vh] bg-gray-400"></div>
         </div>
@@ -437,7 +478,7 @@ const About = () => {
       <div className="flex w-full p-5 gap-4 lg:w-[50vw] lg:my-6">
         <div className="flex relative flex-col">
           <div className="w-[8vh] h-[8vh] rounded-full z-10 flex justify-center items-center bg-yellow-500">
-            <FaBriefcase className="text-2xl " />
+            <IoSchoolSharp className="text-3xl " />
           </div>
           <div className="w-[1px] absolute left-[4vh] h-[37vh] lg:h-[28vh] bg-gray-400"></div>
         </div>
