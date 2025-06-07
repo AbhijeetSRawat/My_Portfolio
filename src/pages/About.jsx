@@ -98,7 +98,7 @@ const About = () => {
           <div className="w-[8vh] h-[8vh] rounded-full z-10 flex justify-center items-center bg-yellow-500">
             <FaBriefcase className="text-2xl " />
           </div>
-          <div className="w-[1px] absolute left-[4vh] h-[73vh] lg:h-[42vh]  bg-gray-400"></div>
+          <div className="w-[1px] absolute left-[4vh] h-[73vh] lg:h-[45vh]  bg-gray-400"></div>
         </div>
         <div className="flex flex-col gap-5">
           <div className="bg-gray-500 w-[65vw] lg:w-[11vw] h-[4vh] flex justify-center items-center rounded-full">
@@ -436,7 +436,7 @@ const About = () => {
           <div className="w-[8vh] h-[8vh] rounded-full z-10 flex justify-center items-center bg-yellow-500">
             <IoSchoolSharp className="text-3xl " />
           </div>
-          <div className="w-[1px] absolute left-[4vh] h-[47vh] lg:h-[28vh]  bg-gray-400"></div>
+          <div className="w-[1px] absolute left-[4vh] h-[47vh] lg:h-[32vh]  bg-gray-400"></div>
         </div>
         <div className="flex flex-col gap-5">
           <div className="bg-gray-500 w-[30vw] lg:w-[10vw] h-[4vh] flex justify-center items-center rounded-full">
@@ -480,7 +480,7 @@ const About = () => {
           <div className="w-[8vh] h-[8vh] rounded-full z-10 flex justify-center items-center bg-yellow-500">
             <IoSchoolSharp className="text-3xl " />
           </div>
-          <div className="w-[1px] absolute left-[4vh] h-[37vh] lg:h-[28vh] bg-gray-400"></div>
+          <div className="w-[1px] absolute left-[4vh] h-[37vh] lg:h-[26vh] bg-gray-400"></div>
         </div>
         <div className="flex flex-col gap-5">
           <div className="bg-gray-500 w-[30vw] lg:w-[10vw] h-[4vh] flex justify-center items-center rounded-full">
