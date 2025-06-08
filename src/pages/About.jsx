@@ -43,6 +43,16 @@ const About = () => {
               <div className="flex gap-2 text-lg lg:text-2xl lg:gap-4">
                 Phone : <div className="text-gray-400">+91 91491 87519</div>
               </div>
+               <div className="flex gap-2 text-lg lg:text-2xl lg:gap-4">
+                GitHub : <div className="text-gray-400">
+                  <Link
+                  to="https://github.com/AbhijeetSRawat"
+                  className="text-blue-400"
+                >
+                  Click Here!
+                </Link>
+                </div>
+              </div>
             </div>
             <div className="flex flex-col lg:gap-4 translate-x-[200%]  transition-all duration-500 ease-out animate-[slide-in_2s_forwards]">
               <div className="flex gap-2 text-lg lg:text-2xl lg:gap-4">
