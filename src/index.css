@@ -35,5 +35,14 @@ body {
     animation: flipY 2s infinite;
   }
 
+  body {
+  overflow: auto;
+}
+
+/* Hide scrollbar for Webkit */
+body::-webkit-scrollbar {
+  display: none;
+}
+
 
  
