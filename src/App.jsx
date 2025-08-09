@@ -15,7 +15,7 @@ export default function App() {
 
         {/* Main content area with proper spacing for navbar */}
         <div className='bg-[rgba(14,12,12,0.9)] text-white w-full min-h-screen 
-                        pb-20 lg:pb-0  
+                        
                         overflow-y-auto scrollbar-hide 
                         translate-y-[-100%] opacity-0 
                         transition-all duration-500 ease-out 
