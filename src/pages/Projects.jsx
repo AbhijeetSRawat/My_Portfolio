@@ -5,6 +5,7 @@ import { ExternalLink, ArrowRight } from 'lucide-react';
 import studynotion from "../assets/studynotion.png"
 import pennytrack from "../assets/pennytrack.png"
 import kisandiary from "../assets/kisandiary.png"
+import dsaguide from "../assets/dsaguide.png"
 
 // Particle component for floating background elements
 const Particle = ({ delay = 0, duration = 20, size = 4 }) => {
@@ -178,8 +179,15 @@ const Projects = () => {
       image: pennytrack,
       description: 'PennyTrack is a finance tracker web app built with React, Firebase, and Tailwind CSS that helps users manage expenses in real-time, featuring Firebase authentication, CSV import/export, search/filter functionality, and Google Sign-In for seamless financial tracking.'
     },
-    {
+     {
       id: '03',
+      title: "DSA Assistant - The DSA Guide",
+      link: 'https://dsa-agent.vercel.app/',
+      image: dsaguide,
+      description: "DSA Assistant is an intelligent chatbot built with React, Node.js, and Google Gemini API using RAG (Retrieval-Augmented Generation) architecture. It leverages Pinecone vector database and LangChain framework to answer Data Structures & Algorithms queries by retrieving relevant context from indexed PDF documents, providing accurate, context-aware responses through a beautiful, dark/light themed chat interface."
+    },
+    {
+      id: '04',
       title: "Kisan E-Portal - The Farmer's Guide",
       link: 'https://kisan-diary-xi5k.vercel.app/',
       image: kisandiary,
