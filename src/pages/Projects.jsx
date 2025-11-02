@@ -6,7 +6,7 @@ import studynotion from "../assets/studynotion.png"
 import pennytrack from "../assets/pennytrack.png"
 import kisandiary from "../assets/kisandiary.png"
 import dsaguide from "../assets/dsaguide.png"
-import mbappe from "../assets/mbappe.png"
+import mbappe from "../assets/Mbappe.png"
 
 // Particle component for floating background elements
 const Particle = ({ delay = 0, duration = 20, size = 4 }) => {
