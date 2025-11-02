@@ -1,146 +1,138 @@
 import React, { useState, useEffect } from 'react';
 import { ExternalLink, ArrowRight } from 'lucide-react';
 
-// Mock images - replace with your actual imports
 import studynotion from "../assets/studynotion.png"
 import pennytrack from "../assets/pennytrack.png"
 import kisandiary from "../assets/kisandiary.png"
 import dsaguide from "../assets/dsaguide.png"
 import mbappe from "../assets/Mbappe.png"
 
-// Particle component for floating background elements
-const Particle = ({ delay = 0, duration = 20, size = 4 }) => {
-  const [position, setPosition] = useState({
+// Enhanced Particle component
+const Particle = ({ delay = 0 }) => {
+  const [position] = useState({
     x: Math.random() * 100,
     y: Math.random() * 100
   });
 
   return (
     <div 
-      className="absolute rounded-full bg-gradient-to-r from-yellow-400/20 to-amber-400/20 blur-sm"
+      className="absolute rounded-full bg-yellow-400/20 blur-sm animate-pulse"
       style={{
         left: `${position.x}%`,
         top: `${position.y}%`,
-        width: `${size}px`,
-        height: `${size}px`,
-        animation: `float ${duration}s infinite linear`,
-        animationDelay: `${delay}s`
+        width: "4px",
+        height: "4px",
+        animation: `float 6s infinite ease-in-out`,
+        animationDelay: `${delay}s`,
+        opacity: 0.8
       }}
     />
   );
 };
 
-// Glowing orb component
-const GlowingOrb = ({ size = 200, color = "gold" }) => (
-  <div 
-    className={`absolute rounded-full opacity-20 animate-pulse`}
-    style={{
-      width: `${size}px`,
-      height: `${size}px`,
-      background: `radial-gradient(circle, ${color === 'gold' ? '#fbbf24' : '#f59e0b'} 0%, transparent 70%)`,
-      filter: 'blur(40px)',
-      animation: 'glow 4s ease-in-out infinite alternate'
-    }}
-  />
-);
-
-// Project Card Component
+// Enhanced Project Card Component
 const ProjectCard = ({ project, index, isLoaded }) => {
   const [isHovered, setIsHovered] = useState(false);
   
   return (
     <div 
-      className={`flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl gap-8 lg:gap-16 my-16 transition-all duration-1000 ease-out ${
-        isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+      className={`flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl gap-8 lg:gap-16 my-16 transition-all duration-1000 ease-out group ${
+        isLoaded ? 'translate-y-0 opacity-100 animate-scaleUp' : 'translate-y-20 opacity-0'
       } ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
-      style={{ transitionDelay: `${0.3 + index * 0.2}s` }}
+      style={{ transitionDelay: `${0.3 + index * 0.3}s` }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Project Image */}
-      <div className="relative w-[90vw] lg:w-[500px] xl:w-[600px] group">
-        {/* Golden Ring Animation */}
-        <div className="absolute -inset-4 rounded-2xl border-2 border-yellow-400/30 animate-spin opacity-60" style={{ animationDuration: '20s' }} />
-        <div className="absolute -inset-2 rounded-2xl border border-yellow-400/20 animate-spin opacity-40" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
+      <div className="relative w-[90vw] lg:w-[500px] xl:w-[600px] group/image">
+        {/* Enhanced Golden Ring Animation */}
+        <div 
+          className="absolute -inset-4 rounded-2xl border-2 border-yellow-400/30 opacity-60 group-hover/image:opacity-100 group-hover/image:border-yellow-400/60 transition-all duration-500" 
+          style={{ animation: `spin 20s linear infinite` }}
+        />
+        <div 
+          className="absolute -inset-2 rounded-2xl border border-yellow-400/20 opacity-40 group-hover/image:opacity-80 transition-all duration-500" 
+          style={{ animation: `spin 15s linear infinite reverse` }}
+        />
         
-        {/* Glassmorphism Container */}
-        <div className="relative rounded-2xl bg-gradient-to-br from-yellow-400/5 to-amber-500/5 backdrop-blur-sm border border-yellow-400/20 shadow-2xl overflow-hidden group-hover:shadow-yellow-400/20 transition-all duration-700 group-hover:border-yellow-400/40">
+        {/* Enhanced Glassmorphism Container */}
+        <div className="relative rounded-2xl bg-gradient-to-br from-yellow-400/5 to-amber-500/5 backdrop-blur-sm border border-yellow-400/20 shadow-2xl overflow-hidden group-hover/image:shadow-yellow-400/30 group-hover/image:border-yellow-400/60 transition-all duration-700">
           
-          {/* Project Number */}
-          <div className="absolute top-4 left-4 z-20 text-5xl lg:text-6xl font-black text-yellow-400 opacity-90 group-hover:scale-110 transition-transform duration-300">
+          {/* Project Number - Enhanced */}
+          <div className="absolute top-4 left-4 z-20 text-5xl lg:text-6xl font-black text-yellow-400 opacity-90 group-hover/image:scale-125 group-hover/image:rotate-12 transition-all duration-300">
             {project.id}
           </div>
           
-          {/* Golden Glow Effect */}
-          <div className={`absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-amber-500/10 transition-all duration-500 ${isHovered ? 'from-yellow-400/20 to-amber-500/20' : ''}`} />
+          {/* Enhanced Golden Glow Effect */}
+          <div className={`absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-amber-500/10 transition-all duration-500 group-hover/image:from-yellow-400/30 group-hover/image:to-amber-500/30`} />
           
-          {/* Shine Effect */}
-          <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent transition-all duration-1000 ${isHovered ? 'translate-x-full' : '-translate-x-full'}`} />
+          {/* Enhanced Shine Effect */}
+          <div className={`absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/20 to-transparent transition-all duration-1000 group-hover/image:translate-x-full`} style={{ transform: isHovered ? 'translateX(0)' : 'translateX(-100%)' }} />
           
-          {/* Image */}
+          {/* Image - Enhanced */}
           <img 
             src={project.image} 
             alt={project.title}
-            className="w-full h-[250px] lg:h-[350px] object-cover transition-all duration-700 group-hover:scale-105"
+            className="w-full h-[250px] lg:h-[350px] object-cover transition-all duration-700 group-hover/image:scale-110"
           />
           
-          {/* Overlay on Hover */}
-          <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-opacity duration-500 ${isHovered ? 'opacity-100' : 'opacity-0'} flex items-end justify-center pb-8`}>
-            <div className="text-yellow-400 font-bold text-lg animate-bounce">
-              <ExternalLink size={24} />
+          {/* Enhanced Overlay on Hover */}
+          <div className={`absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent transition-all duration-500 flex items-end justify-center pb-8 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="text-yellow-400 font-bold text-lg animate-bounce group-hover/image:scale-125 transition-transform duration-300">
+              <ExternalLink size={28} className="group-hover/image:text-yellow-300" />
             </div>
           </div>
           
-          {/* Floating Golden Sparkles */}
-          <div className="absolute top-8 right-8 w-2 h-2 bg-yellow-400 rounded-full animate-ping" />
-          <div className="absolute bottom-12 left-12 w-1 h-1 bg-amber-400 rounded-full animate-pulse" />
-          <div className="absolute top-1/3 right-12 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
+          {/* Enhanced Floating Golden Sparkles */}
+          <div className="absolute top-8 right-8 w-2 h-2 bg-yellow-400 rounded-full animate-ping group-hover/image:scale-150 transition-transform duration-300" />
+          <div className="absolute bottom-12 left-12 w-1 h-1 bg-amber-400 rounded-full animate-pulse group-hover/image:scale-125 transition-transform duration-300" />
+          <div className="absolute top-1/3 right-12 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-bounce group-hover/image:scale-150 transition-all duration-300" style={{ animationDelay: '0.5s' }} />
         </div>
       </div>
 
-      {/* Project Details */}
-      <div className="w-[90vw] lg:w-[500px] xl:w-[600px] flex flex-col gap-4 lg:gap-8 text-center lg:text-left">
-        {/* Title */}
-        <div className="relative group">
-          <h3 className="text-2xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 bg-clip-text text-transparent animate-gradient bg-300%">
+      {/* Project Details - Enhanced */}
+      <div className="w-[90vw] lg:w-[500px] xl:w-[600px] flex flex-col gap-4 lg:gap-8 text-center lg:text-left group/details">
+        {/* Title - Enhanced */}
+        <div className="relative group/title">
+          <h3 className="text-2xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600 bg-clip-text text-transparent group-hover/title:from-amber-500 group-hover/title:to-yellow-400 transition-all duration-500 animate-shimmer">
             {project.title}
           </h3>
-          {/* Golden Glow Background */}
-          <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400/10 to-amber-500/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          {/* Animated Underline */}
-          <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 w-0 group-hover:w-full transition-all duration-700 rounded-full" />
+          {/* Enhanced Golden Glow Background */}
+          <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400/0 to-amber-500/0 group-hover/title:from-yellow-400/20 group-hover/title:to-amber-500/20 rounded-lg blur opacity-0 group-hover/title:opacity-100 transition-all duration-500" />
+          {/* Enhanced Animated Underline */}
+          <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 w-0 group-hover/title:w-full transition-all duration-700 rounded-full" />
         </div>
 
-        {/* Visit Link */}
+        {/* Visit Link - Enhanced */}
         <a
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative inline-flex items-center justify-center lg:justify-start gap-3 text-blue-400 hover:text-blue-300 text-xl lg:text-2xl font-semibold transition-all duration-300"
+          className="group/link relative inline-flex items-center justify-center lg:justify-start gap-3 text-blue-400 hover:text-blue-300 text-xl lg:text-2xl font-semibold transition-all duration-300 group-hover/link:scale-110"
         >
-          <span className="relative">
+          <span className="relative group-hover/link:text-yellow-400 transition-colors duration-300">
             Click Here to Visit
-            <div className="absolute bottom-0 left-0 h-0.5 bg-blue-400 w-0 group-hover:w-full transition-all duration-500" />
+            <div className="absolute bottom-0 left-0 h-0.5 bg-blue-400 w-0 group-hover/link:w-full group-hover/link:bg-yellow-400 transition-all duration-500" />
           </span>
-          <ArrowRight className="group-hover:translate-x-2 transition-transform duration-300" size={20} />
+          <ArrowRight className="group-hover/link:translate-x-2 group-hover/link:scale-125 transition-all duration-300" size={20} />
           
-          {/* Glowing Effect */}
-          <div className="absolute -inset-2 bg-blue-400/10 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+          {/* Enhanced Glowing Effect */}
+          <div className="absolute -inset-2 bg-blue-400/0 group-hover/link:bg-yellow-400/20 rounded-lg blur opacity-0 group-hover/link:opacity-100 transition-all duration-300" />
         </a>
 
-        {/* Description */}
-        <div className="relative p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-green-400/20 shadow-lg group hover:border-green-400/40 transition-all duration-500">
+        {/* Description - Enhanced */}
+        <div className="relative p-6 rounded-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 backdrop-blur-sm border border-green-400/20 shadow-lg group/desc hover:border-green-400/60 hover:bg-gray-800/70 transition-all duration-500 hover:scale-105">
           {/* Description Text */}
-          <p className="text-green-300 text-base lg:text-lg leading-relaxed">
+          <p className="text-green-300 text-base lg:text-lg leading-relaxed group-hover/desc:text-green-200 transition-colors duration-300">
             {project.description}
           </p>
           
-          {/* Corner Decorations */}
-          <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-green-400/40 group-hover:border-green-400/80 transition-colors duration-300" />
-          <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-green-400/40 group-hover:border-green-400/80 transition-colors duration-300" />
+          {/* Enhanced Corner Decorations */}
+          <div className="absolute top-2 right-2 w-3 h-3 border-t-2 border-r-2 border-green-400/40 group-hover/desc:border-green-400/80 group-hover/desc:scale-125 transition-all duration-300" />
+          <div className="absolute bottom-2 left-2 w-3 h-3 border-b-2 border-l-2 border-green-400/40 group-hover/desc:border-green-400/80 group-hover/desc:scale-125 transition-all duration-300" />
           
-          {/* Subtle Glow */}
-          <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          {/* Enhanced Subtle Glow */}
+          <div className="absolute inset-0 bg-gradient-to-br from-green-400/5 to-transparent rounded-2xl opacity-0 group-hover/desc:opacity-100 transition-opacity duration-500" />
         </div>
       </div>
     </div>
@@ -148,8 +140,8 @@ const ProjectCard = ({ project, index, isLoaded }) => {
 };
 
 const Projects = () => {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
     setIsLoaded(true);
@@ -187,15 +179,15 @@ const Projects = () => {
       image: pennytrack,
       description: 'PennyTrack is a finance tracker web app built with React, Firebase, and Tailwind CSS that helps users manage expenses in real-time, featuring Firebase authentication, CSV import/export, search/filter functionality, and Google Sign-In for seamless financial tracking.'
     },
-     {
-      id: '03',
+    {
+      id: '04',
       title: "DSA Assistant - The DSA Guide",
       link: 'https://dsa-agent.vercel.app/',
       image: dsaguide,
       description: "DSA Assistant is an intelligent chatbot built with React, Node.js, and Google Gemini API using RAG (Retrieval-Augmented Generation) architecture. It leverages Pinecone vector database and LangChain framework to answer Data Structures & Algorithms queries by retrieving relevant context from indexed PDF documents, providing accurate, context-aware responses through a beautiful, dark/light themed chat interface."
     },
     {
-      id: '04',
+      id: '05',
       title: "Kisan E-Portal - The Farmer's Guide",
       link: 'https://kisan-diary-xi5k.vercel.app/',
       image: kisandiary,
@@ -205,64 +197,53 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
-      {/* Animated Background */}
+      {/* Enhanced Animated Background - Same as About Page */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Gold Gradient Mesh */}
+        {/* Enhanced mouse-tracking gradient */}
         <div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-20 transition-all duration-200"
           style={{
             background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, #fbbf24 0%, transparent 50%)`
           }}
         />
         
-        {/* Floating Gold Particles */}
+        {/* Enhanced Floating Particles */}
         {[...Array(30)].map((_, i) => (
-          <Particle key={i} delay={i * 0.3} duration={12 + Math.random() * 8} size={2 + Math.random() * 6} />
+          <Particle key={i} delay={i * 0.2} />
         ))}
         
         {/* Golden Grid Pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
+        <div className="absolute inset-0 opacity-5 animate-pulse" style={{
           backgroundImage: `
             linear-gradient(rgba(251, 191, 36, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(251, 191, 36, 0.1) 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px'
         }} />
-        
-        {/* Glowing Golden Orbs */}
-        <div className="absolute top-32 left-20">
-          <GlowingOrb size={400} color="gold" />
-        </div>
-        <div className="absolute bottom-32 right-20">
-          <GlowingOrb size={300} color="gold" />
-        </div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <GlowingOrb size={500} color="gold" />
-        </div>
       </div>
 
       {/* Main Content */}
       <div className="relative z-10 w-full min-h-screen flex flex-col items-center px-5 lg:px-16 py-20">
         
-        {/* Header Section */}
-        <div className={`relative h-[15vh] lg:h-[20vh] flex justify-center items-center mb-16 transition-all duration-1500 ease-out ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-[-50px] opacity-0'}`}>
+        {/* Enhanced Header Section */}
+        <div className={`relative h-[15vh] lg:h-[20vh] flex justify-center items-center mb-16 transition-all duration-1500 ease-out ${isLoaded ? 'translate-y-0 opacity-100 animate-fadeInDown' : 'translate-y-[-50px] opacity-0'}`}>
           {/* Background Text */}
-          <div className="absolute text-6xl lg:text-8xl xl:text-9xl font-black text-gray-700/30 select-none animate-pulse">
+          <div className="absolute text-6xl lg:text-8xl xl:text-9xl font-black text-gray-700/30 select-none animate-pulse group-hover:scale-110 transition-transform duration-300">
             PROJECTS
           </div>
           
-          {/* Foreground Text */}
-          <div className="relative text-3xl lg:text-5xl xl:text-6xl font-bold z-10">
-            <span className="text-white">MY </span>
-            <span className="bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 bg-clip-text text-transparent animate-gradient bg-300%">
+          {/* Foreground Text - Enhanced */}
+          <div className="relative text-3xl lg:text-5xl xl:text-6xl font-bold z-10 group hover:scale-110 transition-all duration-300">
+            <span className="text-white group-hover:text-yellow-300 transition-colors duration-300">MY </span>
+            <span className="bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600 bg-clip-text text-transparent group-hover:from-amber-500 group-hover:to-yellow-400 transition-all duration-500 animate-shimmer">
               WORK
             </span>
           </div>
           
-          {/* Golden Sparkles */}
-          <div className="absolute top-0 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-ping" />
-          <div className="absolute bottom-0 right-1/4 w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse" />
-          <div className="absolute top-1/2 right-0 w-1 h-1 bg-yellow-300 rounded-full animate-bounce" />
+          {/* Enhanced Golden Sparkles */}
+          <div className="absolute top-0 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-ping group-hover:scale-150 transition-transform duration-300" />
+          <div className="absolute bottom-0 right-1/4 w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse group-hover:scale-125 transition-transform duration-300" />
+          <div className="absolute top-1/2 right-0 w-1 h-1 bg-yellow-300 rounded-full animate-bounce group-hover:scale-150 transition-all duration-300" />
         </div>
 
         {/* Projects List */}
@@ -278,39 +259,67 @@ const Projects = () => {
         </div>
       </div>
 
-      {/* Custom CSS for animations */}
+      {/* Enhanced Animations - Same as About Page */}
       <style jsx>{`
         @keyframes float {
-          0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-          50% { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
-          100% { transform: translateY(0px) rotate(360deg); opacity: 0.3; }
+          0%, 100% { 
+            transform: translateY(0px) translateX(0px); 
+          }
+          50% { 
+            transform: translateY(-25px) translateX(15px); 
+          }
         }
-        
-        @keyframes glow {
-          0% { transform: scale(1); opacity: 0.2; }
-          100% { transform: scale(1.2); opacity: 0.4; }
+
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
+
+        @keyframes shimmer {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.8;
+          }
         }
-        
-        .bg-300% {
-          background-size: 300% 300%;
+
+        @keyframes scaleUp {
+          from {
+            opacity: 0;
+            transform: scale(0.9) translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+          }
         }
-        
-        .animate-gradient {
-          animation: gradient 3s ease infinite;
+
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
         }
-        
-        .animate-float {
-          animation: float 8s ease-in-out infinite;
+
+        .animate-fadeInDown {
+          animation: fadeInDown 0.8s ease-out;
         }
-        
-        .animate-glow {
-          animation: glow 4s ease-in-out infinite alternate;
+
+        .animate-shimmer {
+          animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .animate-scaleUp {
+          animation: scaleUp 0.7s ease-out;
         }
       `}</style>
     </div>

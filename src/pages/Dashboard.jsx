@@ -4,50 +4,34 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import portfolio from '../assets/portfoliopic.png'
 import portfoliosm from '../assets/portfoliopicsm.png'
 
-// Particle component for floating background elements
-const Particle = ({ delay = 0, duration = 20, size = 4 }) => {
-  const [position, setPosition] = useState({
+// Enhanced Particle component
+const Particle = ({ delay = 0 }) => {
+  const [position] = useState({
     x: Math.random() * 100,
     y: Math.random() * 100
   });
 
   return (
     <div 
-      className="absolute rounded-full bg-gradient-to-r from-yellow-400/20 to-amber-400/20 blur-sm"
+      className="absolute rounded-full bg-yellow-400/20 blur-sm animate-pulse"
       style={{
         left: `${position.x}%`,
         top: `${position.y}%`,
-        width: `${size}px`,
-        height: `${size}px`,
-        animation: `float ${duration}s infinite linear`,
-        animationDelay: `${delay}s`
+        width: "4px",
+        height: "4px",
+        animation: `float 6s infinite ease-in-out`,
+        animationDelay: `${delay}s`,
+        opacity: 0.8
       }}
     />
   );
 };
 
-// Glowing orb component
-const GlowingOrb = ({ size = 200, color = "gold" }) => (
-  <div 
-    className={`absolute rounded-full opacity-20 animate-pulse`}
-    style={{
-      width: `${size}px`,
-      height: `${size}px`,
-      background: `radial-gradient(circle, ${color === 'gold' ? '#fbbf24' : '#f59e0b'} 0%, transparent 70%)`,
-      filter: 'blur(40px)',
-      animation: 'glow 4s ease-in-out infinite alternate'
-    }}
-  />
-);
-
 export default function Dashboard() {
-  const [isLoaded, setIsLoaded] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
-    
     const handleMouseMove = (e) => {
       setMousePosition({
         x: e.clientX / window.innerWidth,
@@ -61,78 +45,82 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen w-full relative overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black">
-      {/* Animated Background */}
+      {/* Enhanced Animated Background - Same as About Page */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Gold Gradient Mesh */}
+        {/* Enhanced mouse-tracking gradient */}
         <div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-20 transition-all duration-200"
           style={{
             background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, #fbbf24 0%, transparent 50%)`
           }}
         />
         
-        {/* Floating Gold Particles */}
-        {[...Array(25)].map((_, i) => (
-          <Particle key={i} delay={i * 0.4} duration={15 + Math.random() * 10} size={2 + Math.random() * 6} />
+        {/* Enhanced Floating Particles */}
+        {[...Array(30)].map((_, i) => (
+          <Particle key={i} delay={i * 0.2} />
         ))}
         
         {/* Golden Grid Pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
+        <div className="absolute inset-0 opacity-5 animate-pulse" style={{
           backgroundImage: `
             linear-gradient(rgba(251, 191, 36, 0.1) 1px, transparent 1px),
             linear-gradient(90deg, rgba(251, 191, 36, 0.1) 1px, transparent 1px)
           `,
           backgroundSize: '50px 50px'
         }} />
-        
-        {/* Glowing Golden Orbs */}
-        <div className="absolute top-20 left-20">
-          <GlowingOrb size={400} color="gold" />
-        </div>
-        <div className="absolute bottom-20 right-20">
-          <GlowingOrb size={300} color="gold" />
-        </div>
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between p-5 lg:px-16">
+      <div className="relative z-10 w-full min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between p-5 lg:px-16 gap-8 lg:gap-16">
         
-        {/* Image Section */}
-        <div className={`w-[65vw] h-[65vw] lg:w-[400px] lg:h-[500px]  flex justify-center items-center relative lg:flex-shrink-0 transition-all duration-1500 ease-out ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'}`}>
+        {/* Image Section - Enhanced Animation */}
+        <div className="w-[65vw] h-[65vw] lg:w-[400px] lg:h-[500px] flex justify-center items-center relative lg:flex-shrink-0 animate-fadeIn">
           
-          {/* Golden Ring Animation */}
-          <div className="absolute inset-0 rounded-full lg:rounded-3xl border-2 border-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 animate-spin opacity-30  " style={{ animationDuration: '20s' }} />
-          <div className="absolute inset-2 rounded-full lg:rounded-3xl border border-yellow-400/50 animate-spin opacity-20 " style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
+          {/* Enhanced Golden Ring Animation */}
+          <div 
+            className="absolute inset-0 rounded-full lg:rounded-3xl border-2 border-yellow-400 opacity-30 group-hover:opacity-60 transition-opacity duration-500" 
+            style={{ 
+              animation: `spin 20s linear infinite`,
+              borderImage: 'linear-gradient(45deg, #fbbf24, #f59e0b, #fbbf24) 1'
+            }} 
+          />
+          <div 
+            className="absolute inset-2 rounded-full lg:rounded-3xl border border-yellow-400/50 opacity-20" 
+            style={{ 
+              animation: `spin 15s linear infinite reverse`,
+              animationDirection: 'reverse'
+            }} 
+          />
           
-          {/* Glassmorphism Container */}
-          <div className="absolute inset-3 rounded-full lg:rounded-3xl bg-gradient-to-br from-yellow-400/10 to-amber-500/5 backdrop-blur-sm border border-yellow-400/20 shadow-2xl">
+          {/* Enhanced Glassmorphism Container */}
+          <div className="absolute inset-3 rounded-full lg:rounded-3xl bg-gradient-to-br from-yellow-400/10 to-amber-500/5 backdrop-blur-sm border border-yellow-400/20 shadow-2xl group-hover:from-yellow-400/20 group-hover:to-amber-500/15 transition-all duration-500">
             <div className="absolute inset-0 rounded-full lg:rounded-3xl bg-gradient-to-br from-yellow-400/20 to-amber-600/20 animate-pulse" />
           </div>
           
-          {/* Image Container */}
-          <div className="relative z-10 rounded-full lg:rounded-3xl  overflow-hidden shadow-2xl transition-all duration-700 hover:scale-105 group">
-            {/* Golden Glow Effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/20 to-amber-500/20 group-hover:from-yellow-400/40 group-hover:to-amber-500/40 transition-all duration-500 rounded-full lg:rounded-3xl" />
+          {/* Image Container - Enhanced */}
+          <div className="relative z-10 rounded-full lg:rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-110 group cursor-pointer">
+            {/* Enhanced Golden Glow Effect */}
+            <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/0 to-amber-500/0 group-hover:from-yellow-400/40 group-hover:to-amber-500/40 transition-all duration-500 rounded-full lg:rounded-3xl z-10" />
             
-            {/* Small Device Image - Only visible on mobile/tablet */}
+            {/* Small Device Image */}
             <img 
-              className='block lg:hidden rounded-full w-[60vw] h-[60vw] object-cover shadow-xl border-2 border-yellow-400/30 relative z-10 transition-all duration-700 hover:border-yellow-400/60' 
+              className='block lg:hidden rounded-full w-[60vw] h-[60vw] object-cover shadow-xl border-2 border-yellow-400/30 group-hover:border-yellow-400/80 group-hover:scale-105 relative z-10 transition-all duration-500' 
               src={portfoliosm} 
               alt="Abhijeet Singh Rawat" 
               onError={() => setImageError(true)}
             />
             
-            {/* Large Device Image - Only visible on lg screens and above */}
+            {/* Large Device Image */}
             <img 
-              className='hidden lg:block rounded-3xl w-[360px] h-[460px] object-cover shadow-xl border-2 border-yellow-400/30 relative z-10 transition-all duration-700 hover:border-yellow-400/60' 
+              className='hidden lg:block rounded-3xl w-[360px] h-[460px] object-cover shadow-xl border-2 border-yellow-400/30 group-hover:border-yellow-400/80 group-hover:scale-110 relative z-10 transition-all duration-500' 
               src={portfolio} 
               alt="Abhijeet Singh Rawat"
               onError={() => setImageError(true)}
             />
             
-            {/* Fallback when images don't load */}
+            {/* Fallback */}
             {imageError && (
-              <div className="rounded-full lg:rounded-3xl w-[60vw] h-[60vw] lg:w-[360px] lg:h-[460px] bg-gradient-to-br from-yellow-400 to-amber-600 shadow-2xl flex items-center justify-center text-2xl lg:text-4xl font-bold text-black relative z-10">
+              <div className="rounded-full lg:rounded-3xl w-[60vw] h-[60vw] lg:w-[360px] lg:h-[460px] bg-gradient-to-br from-yellow-400 to-amber-600 shadow-2xl flex items-center justify-center text-2xl lg:text-4xl font-bold text-black group-hover:scale-110 transition-all duration-500">
                 <div className="text-center">
                   <div className="text-lg lg:text-3xl mb-2 font-black">ABHIJEET</div>
                   <div className="text-sm lg:text-xl opacity-90 font-semibold">SINGH RAWAT</div>
@@ -142,113 +130,180 @@ export default function Dashboard() {
             )}
           </div>
           
-          {/* Floating Golden Sparkles */}
-          <div className="absolute top-5 right-5 w-2 h-2 bg-yellow-400 rounded-full animate-ping" />
-          <div className="absolute bottom-10 left-8 w-1 h-1 bg-amber-400 rounded-full animate-pulse" />
-          <div className="absolute top-1/3 left-5 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-bounce" style={{ animationDelay: '0.5s' }} />
+          {/* Enhanced Floating Golden Sparkles */}
+          <div className="absolute top-5 right-5 w-2 h-2 bg-yellow-400 rounded-full animate-ping group-hover:scale-150 transition-transform duration-300" />
+          <div className="absolute bottom-10 left-8 w-1 h-1 bg-amber-400 rounded-full animate-pulse group-hover:scale-125 transition-transform duration-300" />
+          <div className="absolute top-1/3 left-5 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-bounce group-hover:scale-150 transition-all duration-300" style={{ animationDelay: '0.5s' }} />
         </div>
 
-        {/* Text Content Section */}
-        <div className={`mt-10 lg:mt-0 flex flex-col items-center lg:items-start lg:max-w-[800px] lg:ml-20 transition-all duration-1500 ease-out ${isLoaded ? 'translate-x-0 opacity-100' : 'translate-x-20 opacity-0'}`} style={{ transitionDelay: '0.3s' }}>
+        {/* Text Content Section - Enhanced Animation */}
+        <div className="mt-6 lg:mt-0 flex flex-col items-center lg:items-start lg:max-w-[700px] animate-slideIn group">
           
-          {/* Main Title with Golden Effect */}
-          <div className="text-2xl font-bold lg:text-5xl xl:text-6xl lg:font-bold lg:mb-5 relative group text-center lg:text-left">
-            <span className="bg-gradient-to-r from-yellow-400 via-amber-400 to-yellow-500 bg-clip-text text-transparent animate-pulse bg-300% animate-gradient">
+          {/* Main Title with Enhanced Animation */}
+          <div className="text-3xl font-bold lg:text-5xl xl:text-6xl lg:mb-4 relative group/title text-center lg:text-left hover:scale-110 transition-all duration-300">
+            <span className="bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-600 bg-clip-text text-transparent group-hover/title:from-amber-500 group-hover/title:to-yellow-400 transition-all duration-500 animate-shimmer">
               I'M ABHIJEET SINGH RAWAT.
             </span>
-            {/* Golden Glow Background */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-yellow-400/20 to-amber-500/20 rounded-lg blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-            {/* Animated Underline */}
-            <div className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 w-0 group-hover:w-full transition-all duration-700 rounded-full" />
+            {/* Enhanced Animated Underline */}
+            <div className="absolute bottom-0 left-1/2 lg:left-0 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 w-0 group-hover/title:w-full transition-all duration-700 rounded-full" />
           </div>
           
-          {/* Subtitle */}
-          <div className={`text-2xl font-bold my-2 lg:text-5xl xl:text-6xl lg:font-bold lg:mb-8 transition-all duration-1000 text-center lg:text-left ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '0.6s' }}>
-            <span className="bg-gradient-to-r from-white via-gray-100 to-white bg-clip-text text-transparent">
-              FULL-STACK WEB DEVELOPER
-            </span>
-          </div>
+          {/* Subtitle - Enhanced */}
+          <h2 className="text-2xl font-bold my-3 lg:text-4xl xl:text-5xl lg:mb-6 text-center lg:text-left text-white group-hover:scale-105 transition-all duration-300 animate-slideInDown">
+            FULL-STACK WEB DEVELOPER
+          </h2>
           
-          {/* Description */}
-          <div className={`text-center lg:text-left px-3 lg:px-0 mt-1 mb-8 lg:text-xl xl:text-2xl lg:mb-12 text-gray-300 leading-relaxed max-w-[550px] transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '0.9s' }}>
-            I am a Full-Stack Web Developer focused on crafting clean and user-friendly experiences, I am passionate about building excellent software that improves the lives of those around me.
-          </div>
+          {/* Description - Enhanced */}
+          <p className="text-center lg:text-left px-3 lg:px-0 mt-2 mb-8 text-base lg:text-lg xl:text-xl lg:mb-10 text-gray-300 leading-relaxed max-w-[600px] group-hover:text-gray-200 transition-all duration-300 animate-slideInUp">
+            I am a Full-Stack Web Developer focused on crafting clean and user-friendly experiences. I am passionate about building excellent software that improves the lives of those around me.
+          </p>
           
-          {/* CTA Button */}
-          <div className={`transition-all duration-1000 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1.2s' }}>
-            <Link to="/about" className="group relative block">
-              <div className="relative flex justify-between items-center h-[60px] w-[280px] lg:w-[320px] font-semibold rounded-full border-2 border-yellow-400/60 bg-gradient-to-r from-black/80 to-gray-900/80 backdrop-blur-lg hover:from-yellow-400/10 hover:to-amber-500/10 transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:border-yellow-400 overflow-hidden">
-                
-                {/* Button Shine Effect */}
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                
-                {/* Golden Particles Effect */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                  {[...Array(6)].map((_, i) => (
-                    <div
-                      key={i}
-                      className="absolute w-1 h-1 bg-yellow-400 rounded-full animate-bounce"
-                      style={{
-                        left: `${20 + i * 10}%`,
-                        top: `${30 + (i % 2) * 40}%`,
-                        animationDelay: `${i * 0.1}s`,
-                        animationDuration: '1s'
-                      }}
-                    />
-                  ))}
-                </div>
-                
-                {/* Button Text */}
-                <div className="relative z-10 pl-8 text-white group-hover:text-yellow-300 transition-colors duration-300 font-bold text-lg">
-                  MORE ABOUT ME
-                </div>
-
-                {/* Arrow Container */}
-                <div className="relative h-[60px] w-[60px] flex justify-center items-center bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full group-hover:scale-110 group-hover:from-yellow-300 group-hover:to-amber-400 transition-all duration-300 shadow-lg">
-                  <FaArrowRightLong className="text-black font-bold transition-all duration-300 group-hover:translate-x-1 group-hover:scale-110 text-lg" />
-                  
-                  {/* Golden Ripple Effect */}
-                  <div className="absolute inset-0 rounded-full bg-yellow-400/50 scale-0 group-hover:scale-150 group-hover:opacity-0 transition-all duration-700" />
-                </div>
+          {/* CTA Button - Enhanced with animations matching About page */}
+          <Link to="/about" className="group/btn relative block animate-slideUp">
+            <div className="relative flex justify-between items-center border-2 text-lg border-yellow-400/60 bg-gradient-to-r from-black/80 to-gray-900/80 backdrop-blur h-14 w-72 lg:w-80 rounded-full hover:border-yellow-400 hover:from-yellow-400/10 hover:to-amber-500/10 transition-all duration-500 hover:scale-125 hover:shadow-2xl hover:shadow-yellow-400/40 font-semibold overflow-hidden">
+              
+              {/* Enhanced Button Shine Effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-yellow-400/10 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-1000" />
+              
+              {/* Enhanced Golden Particles Effect */}
+              <div className="absolute inset-0 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500">
+                {[...Array(8)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="absolute w-1 h-1 bg-yellow-400 rounded-full animate-bounce"
+                    style={{
+                      left: `${15 + i * 8}%`,
+                      top: `${25 + (i % 2) * 50}%`,
+                      animationDelay: `${i * 0.1}s`,
+                      animationDuration: '0.8s'
+                    }}
+                  />
+                ))}
               </div>
-            </Link>
-          </div>
+              
+              {/* Button Text */}
+              <span className="relative z-10 pl-12 lg:pl-14 text-white group-hover/btn:text-yellow-300 transition-all duration-300 font-bold group-hover/btn:tracking-wider">
+                MORE ABOUT ME
+              </span>
+
+              {/* Arrow Container - Enhanced */}
+              <div className="relative h-14 w-14 rounded-full flex justify-center items-center bg-gradient-to-r from-yellow-400 to-amber-500 group-hover/btn:scale-125 group-hover/btn:rotate-12 transition-all duration-300 shadow-lg">
+                <FaArrowRightLong className="text-black transition-all duration-300 group-hover/btn:translate-x-2 group-hover/btn:scale-125 text-lg group-hover/btn:animate-bounce" />
+                
+                {/* Enhanced Golden Ripple Effect */}
+                <div className="absolute inset-0 rounded-full bg-yellow-400/50 scale-0 group-hover/btn:scale-150 group-hover/btn:opacity-0 transition-all duration-700" />
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
 
-      {/* Custom CSS for animations */}
+      {/* Enhanced Animations - Same as About Page */}
       <style jsx>{`
         @keyframes float {
-          0% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
-          50% { transform: translateY(-30px) rotate(180deg); opacity: 0.8; }
-          100% { transform: translateY(0px) rotate(360deg); opacity: 0.3; }
+          0%, 100% { 
+            transform: translateY(0px) translateX(0px); 
+          }
+          50% { 
+            transform: translateY(-25px) translateX(15px); 
+          }
         }
-        
-        @keyframes glow {
-          0% { transform: scale(1); opacity: 0.2; }
-          100% { transform: scale(1.2); opacity: 0.4; }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
         }
-        
-        @keyframes gradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
+
+        @keyframes slideIn {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
         }
-        
-        .bg-300% {
-          background-size: 300% 300%;
+
+        @keyframes slideInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        
-        .animate-gradient {
-          animation: gradient 3s ease infinite;
+
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateY(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
         }
-        
-        .animate-float {
-          animation: float 8s ease-in-out infinite;
+
+        @keyframes slideUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px) scale(0.9);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
         }
-        
-        .animate-glow {
-          animation: glow 4s ease-in-out infinite alternate;
+
+        @keyframes shimmer {
+          0%, 100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.8;
+          }
+        }
+
+        @keyframes spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        .animate-fadeIn {
+          animation: fadeIn 0.8s ease-out;
+        }
+
+        .animate-slideIn {
+          animation: slideIn 0.8s ease-out 0.3s both;
+        }
+
+        .animate-slideInDown {
+          animation: slideInDown 0.8s ease-out 0.5s both;
+        }
+
+        .animate-slideInUp {
+          animation: slideInUp 0.8s ease-out 0.7s both;
+        }
+
+        .animate-slideUp {
+          animation: slideUp 0.8s ease-out 0.9s both;
+        }
+
+        .animate-shimmer {
+          animation: shimmer 3s ease-in-out infinite;
         }
       `}</style>
     </div>
