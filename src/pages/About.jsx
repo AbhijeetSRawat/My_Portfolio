@@ -226,7 +226,11 @@ const About = () => {
     { name: "NodeJs", percentage: 75 },
     { name: "TailwindCSS", percentage: 95 },
     { name: "NextJS", percentage: 70 },
-    { name: "SQL", percentage: 70 }
+    { name: "SQL", percentage: 70 },
+    { name: "Generative AI", percentage: 75 },
+    { name: "Langchain", percentage: 65 },
+    { name: "Pinecone", percentage: 60 },
+    { name: "Vector DB", percentage: 65 },
   ];
 
   return (
@@ -299,7 +303,7 @@ const About = () => {
                 </div>
                 <div className="flex gap-2 text-lg lg:text-2xl items-center">
                   <span className="font-semibold">Age :</span> 
-                  <div className="text-gray-400">21</div>
+                  <div className="text-gray-400">22</div>
                 </div>
                 <div className="flex gap-2 text-lg lg:text-2xl items-center">
                   <span className="font-semibold">Freelance :</span> 
@@ -404,7 +408,7 @@ const About = () => {
         <TimelineItem
           icon={FaBriefcase}
           date="June 2025 - Present"
-          title="MERN Stack Intern - TECHBRO24"
+          title="MERN Stack Developer - TECHBRO24"
           description={
             <>
               -Developing scalable web applications using MongoDB, Express.js, React, and Node.js (MERN stack). <br /><br />

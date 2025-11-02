@@ -6,6 +6,7 @@ import studynotion from "../assets/studynotion.png"
 import pennytrack from "../assets/pennytrack.png"
 import kisandiary from "../assets/kisandiary.png"
 import dsaguide from "../assets/dsaguide.png"
+import mbappe from "../assets/mbappe.png"
 
 // Particle component for floating background elements
 const Particle = ({ delay = 0, duration = 20, size = 4 }) => {
@@ -174,6 +175,13 @@ const Projects = () => {
     },
     {
       id: '02',
+      title: 'MBAPPE Arts - The Furniture Solution',
+      link: 'https://mbappe-arts.vercel.app',
+      image: mbappe,
+      description: 'MBappe Arts is a furniture e-commerce platform that offers a curated collection of high-quality home furnishings and decor items. The website provides customers with an easy-to-browse online shopping experience where they can explore, select, and purchase furniture pieces that suit their home design preferences.'
+    },
+    {
+      id: '03',
       title: 'PennyTrack - The Finance Tracker',
       link: 'https://finance-tracker-nine-phi.vercel.app/',
       image: pennytrack,
